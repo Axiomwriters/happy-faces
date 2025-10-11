@@ -44,66 +44,74 @@ function App() {
     </div>
 
     {/* Impact Page Code */}
-    <div className="impact">
-      <h1>Our Impact at a Glance</h1>
-      <h2>Creating lasting change across Kenya's communities</h2>
-      <div>
-        <div>
-          <IoPeopleOutline />
-          <p>50+</p>
-          <p>Youth Trained</p>
-          <p>In vocational and leadership skills</p>
+    <div className="impact flex flex-col justify-center items-center text-white bg-green-400 min-h-90">
+      <h1 className="text-5xl font-bold">Our Impact at a Glance</h1>
+      <h2 className="mt-5 mb-5 text-xl text-gray-200 ">Creating lasting change across Kenya's communities</h2>
+      <div className="flex justify-center items-center m-5 gap-3 text-center">
+        <div className="flex flex-col justify-center items-center">
+          <p className="border-0 rounded-full p-2 bg-gray-300/50"><IoPeopleOutline className="text-4xl m-2" /></p>
+          <p className="text-3xl font-bold m-1">50+</p>
+          <p className="text-lg font-bold">Youth Trained</p>
+          <p className="text-medium text-gray-200">In vocational and leadership skills</p>
         </div>
-        <div>
-          <LuUtensils />
-          <p>2,000+</p>
-          <p>Children Fed</p>
-          <p>Through school and community programs</p>
+        <div className="flex flex-col justify-center items-center">
+          <p className="border-0 rounded-full p-2 bg-gray-300/50"><LuUtensils className="text-4xl m-2 text-center" /></p>
+          <p className="text-3xl font-bold m-1">2,000+</p>
+          <p className="text-lg font-bold">Children Fed</p>
+          <p className="text-medium text-gray-200">Through school and community programs</p>
         </div>
-        <div>
-          <FaRegHeart />
-          <p>3,000</p>
-          <p>Sanitary Pads</p>
-          <p>Distributed to girls in schools</p>
+        <div className="flex flex-col justify-center items-center">
+          <p className="border-0 rounded-full p-2 bg-gray-300/50"><FaRegHeart className="text-4xl m-2" /></p>
+          <p className="text-3xl font-bold m-1">3,000</p>
+          <p className="text-lg font-bold">Sanitary Pads</p>
+          <p className="text-medium text-gray-200">Distributed to girls in schools</p>
         </div>
-        <div>
-          <IoWaterOutline />
-          <p>10+</p>
-          <p>Water & Trees</p>
-          <p>Clean water tanks + 1,000 trees planted</p>
+        <div className="flex flex-col justify-center items-center">
+          <p className="border-0 rounded-full p-2 bg-gray-300/50"><IoWaterOutline className="text-4xl m-2" /></p>
+          <p className="text-3xl font-bold m-1">10+</p>
+          <p className="text-lg font-bold">Water & Trees</p>
+          <p className="text-medium text-gray-200">Clean water tanks + 1,000 trees planted</p>
         </div>
       </div>
     </div>
 
     {/* About Page */}
-    <div>
-      <h1>About Us</h1>
-      <h2>Building a sustainable future for Kenya's communities through empowerment and opportunity</h2>
-      <>
-        <div>
-          <MdOutlineDescription />
+    <div className="flex flex-col items-center min-h-screen">
+      <h1 className="font-bold text-4xl mt-6 mb-3">About Us</h1>
+      <h2 className="text-gray-500 text-xl text-center mb-4">Building a sustainable future for Kenya's communities through empowerment and opportunity</h2>
+      <div 
+      className="flex justify-center items-center p-3 gap-3 m-4 border-1 border-gray-200 rounded-lg"
+      >
+        <div className="border-0 bg-gray-300/50 p-3 rounded-lg">
+          <MdOutlineDescription className="text-2xl text-green-400" />
         </div>
         <div>
-          <p>Who We Are</p>
-          <p>Founded in 2022, Happy Faces Empowerment Network supports vulnerable communities in Kenya by creating opportunities for education, employment, and resilience.</p>
+          <p className="text-xl font-bold">Who We Are</p>
+          <p className="text-lg text-gray-400 mt-3">Founded in 2022, Happy Faces Empowerment Network supports vulnerable communities in Kenya by creating opportunities for education, employment, and resilience.</p>
         </div>
-      </>
-       <>
-        <div><FiTarget /></div>
-        <div>
-          <p>Our Mission</p>
-          <p>To empower vulnerable and marginalized persons in Kenya with the skills, tools, and networks to achieve sustainable livelihoods.</p>
-        </div>
-      </>
-       <>
-        <div>
-          <FaRegEye />
+      </div>
+       <div
+       className="flex justify-center items-center p-3 gap-3 m-4 border-1 border-gray-200 rounded-lg"
+       >
+        <div className="border-0 bg-gray-300/50 p-3 rounded-lg">
+        <FiTarget className="text-2xl text-green-400" />
         </div>
         <div>
-          <p>Our Vision</p>
-           <p>A future where every vulnerable and marginalized person in Kenya has access to quality education, clean water, and decent work opportunities.</p>
+          <p className="text-xl font-bold">Our Mission</p>
+          <p className="text-lg text-gray-400 mt-3">To empower vulnerable and marginalized persons in Kenya with the skills, tools, and networks to achieve sustainable livelihoods.</p>
         </div>
-      </>
+      </div>
+       <div
+       className="flex justify-center items-center p-3 gap-3 m-4 border-1 border-gray-200 rounded-lg"
+       >
+        <div className="border-0 bg-gray-300/50 p-3 rounded-lg">
+          <FaRegEye className="text-2xl text-green-400" />
+        </div>
+        <div>
+          <p className="text-xl font-bold">Our Vision</p>
+           <p className="text-lg text-gray-400 mt-3">A future where every vulnerable and marginalized person in Kenya has access to quality education, clean water, and decent work opportunities.</p>
+        </div>
+      </div>
     </div>
   
   {/* Projects Page */}
