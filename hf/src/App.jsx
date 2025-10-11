@@ -48,25 +48,25 @@ function App() {
       <h1 className="text-5xl font-bold">Our Impact at a Glance</h1>
       <h2 className="mt-5 mb-5 text-xl text-gray-200 ">Creating lasting change across Kenya's communities</h2>
       <div className="flex justify-center items-center m-5 gap-3 text-center">
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center w-full">
           <p className="border-0 rounded-full p-2 bg-gray-300/50"><IoPeopleOutline className="text-4xl m-2" /></p>
           <p className="text-3xl font-bold m-1">50+</p>
           <p className="text-lg font-bold">Youth Trained</p>
           <p className="text-medium text-gray-200">In vocational and leadership skills</p>
         </div>
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center w-full">
           <p className="border-0 rounded-full p-2 bg-gray-300/50"><LuUtensils className="text-4xl m-2 text-center" /></p>
           <p className="text-3xl font-bold m-1">2,000+</p>
           <p className="text-lg font-bold">Children Fed</p>
           <p className="text-medium text-gray-200">Through school and community programs</p>
         </div>
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center w-full">
           <p className="border-0 rounded-full p-2 bg-gray-300/50"><FaRegHeart className="text-4xl m-2" /></p>
           <p className="text-3xl font-bold m-1">3,000</p>
           <p className="text-lg font-bold">Sanitary Pads</p>
           <p className="text-medium text-gray-200">Distributed to girls in schools</p>
         </div>
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center w-full">
           <p className="border-0 rounded-full p-2 bg-gray-300/50"><IoWaterOutline className="text-4xl m-2" /></p>
           <p className="text-3xl font-bold m-1">10+</p>
           <p className="text-lg font-bold">Water & Trees</p>
@@ -87,7 +87,7 @@ function App() {
         </div>
         <div>
           <p className="text-xl font-bold">Who We Are</p>
-          <p className="text-lg text-gray-400 mt-3">Founded in 2022, Happy Faces Empowerment Network supports vulnerable communities in Kenya by creating opportunities for education, employment, and resilience.</p>
+          <p className="text-lg text-gray-400 mt-3 w-lg">Founded in 2022, Happy Faces Empowerment Network supports vulnerable communities in Kenya by creating opportunities for education, employment, and resilience.</p>
         </div>
       </div>
        <div
@@ -98,7 +98,7 @@ function App() {
         </div>
         <div>
           <p className="text-xl font-bold">Our Mission</p>
-          <p className="text-lg text-gray-400 mt-3">To empower vulnerable and marginalized persons in Kenya with the skills, tools, and networks to achieve sustainable livelihoods.</p>
+          <p className="text-lg text-gray-400 mt-3 w-lg">To empower vulnerable and marginalized persons in Kenya with the skills, tools, and networks to achieve sustainable livelihoods.</p>
         </div>
       </div>
        <div
@@ -109,15 +109,15 @@ function App() {
         </div>
         <div>
           <p className="text-xl font-bold">Our Vision</p>
-           <p className="text-lg text-gray-400 mt-3">A future where every vulnerable and marginalized person in Kenya has access to quality education, clean water, and decent work opportunities.</p>
+           <p className="text-lg text-gray-400 mt-3 w-lg">A future where every vulnerable and marginalized person in Kenya has access to quality education, clean water, and decent work opportunities.</p>
         </div>
       </div>
     </div>
   
   {/* Projects Page */}
-    <div>
-      <h1>Programs & Projects</h1>
-      <h2>Comprehensive empowerment initiatives addressing community needs through multiple pathways</h2>
+    <div className="flex flex-col min-h-screen">
+      <h1 className="font-bold text-4xl mt-6 mb-3 text-center">Programs & Projects</h1>
+      <h2 className="text-gray-500 text-xl text-center mb-4">Comprehensive empowerment initiatives addressing community needs through multiple pathways</h2>
       <>
         <div></div>
         <>
@@ -125,10 +125,9 @@ function App() {
           <div>
             <p>Empowerment Stitches</p>
             <p>
-              Vocational training in fashion design, tailoring, and artisan bag production with mentorship, entrepreneurship training, and counseling for sustainable livelihoods.
-
-              •Market-relevant skills: sewing, tailoring, pattern-making
-              •Business incubation & entrepreneurship
+              Vocational training in fashion design, tailoring, and artisan bag production with mentorship, entrepreneurship training, and counseling for sustainable livelihoods.<br></br>
+              •Market-relevant skills: sewing, tailoring, pattern-making<br></br>
+              •Business incubation & entrepreneurship<br></br>
               •Sustainable fashion using recycled materials
             </p>
           </div>
@@ -142,11 +141,10 @@ function App() {
           <div>
             <p>Clean Water & Food Security</p>
             <p>
-              Providing household water filters, community tanks, and training in climate-smart farming for health and sustainable food security.
-
-              •Household water filters for safe drinking
-              •Community storage tanks
-              •Drip irrigation & climate-smart farming
+              Providing household water filters, community tanks, and training in climate-smart farming for health and sustainable food security.<br></br>
+              •Household water filters for safe drinking<br></br>
+              •Community storage tanks<br></br>
+              •Drip irrigation & climate-smart farming <br></br>
             </p>
           </div>
           <button>Learn More</button>
@@ -159,10 +157,9 @@ function App() {
           <div>
             <p>Child & Youth Leadership Hub</p>
             <p>
-              Nurturing young leaders through public speaking, financial literacy, mentorship programs, and youth forums on critical social issues.
-
-              •Public speaking & financial literacy
-              •Mentorship with role models
+              Nurturing young leaders through public speaking, financial literacy, mentorship programs, and youth forums on critical social issues.<br></br>
+              •Public speaking & financial literacy<br></br>
+              •Mentorship with role models<br></br>
               •Forums on climate action & equality
             </p>
           </div>
