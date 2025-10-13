@@ -11,6 +11,10 @@ import { CiMail } from "react-icons/ci";
 import { IoCallOutline } from "react-icons/io5";
 import { CiGlobe } from "react-icons/ci";
 import homeBg from './assets/home-bg.png';
+import homeBg1 from './assets/home-bg.png';
+import abt2 from './assets/abt-2.png';
+import abt3 from './assets/abt-3.png';
+import './index.css'
 
 function App() {
 
@@ -115,57 +119,90 @@ function App() {
     </div>
   
   {/* Projects Page */}
-    <div className="flex flex-col min-h-screen">
-      <h1 className="font-bold text-4xl mt-6 mb-3 text-center">Programs & Projects</h1>
+    <div className="min-h-screen bg-gray-100/50">
+      <h1 className="font-bold text-4xl p-3 mb-3 text-center">Programs & Projects</h1>
       <h2 className="text-gray-500 text-xl text-center mb-4">Comprehensive empowerment initiatives addressing community needs through multiple pathways</h2>
-      <>
-        <div></div>
+      <div className="project-cards flex flex-wrap justify-center gap-6 p-8">
+        <div className="border-1 border-gray-300 p-4 rounded-lg bg-white">
+        <div 
+        className="w-full h-40 bg-white rounded-xl shadow-md overflow-hidden mb-4"
+        >
+          <img 
+            src={homeBg1}
+            alt="Background"
+            className="w-full h-full object-cover"
+          />
+        </div>
         <>
-          <div><FiScissors /></div>
+          <div><FiScissors className="mb-3 text-2xl text-green-400" /></div>
           <div>
-            <p>Empowerment Stitches</p>
-            <p>
-              Vocational training in fashion design, tailoring, and artisan bag production with mentorship, entrepreneurship training, and counseling for sustainable livelihoods.<br></br>
-              •Market-relevant skills: sewing, tailoring, pattern-making<br></br>
-              •Business incubation & entrepreneurship<br></br>
-              •Sustainable fashion using recycled materials
+            <p className="text-lg font-bold mb-2">Empowerment Stitches</p>
+            <p className="text-medium text-gray-400 mb-3">
+              Vocational training in fashion design, tailoring, and artisan bag production with mentorship, entrepreneurship training, and counseling for sustainable livelihoods.
             </p>
+             <ul className="flex flex-col gap-3 text-gray-400 mb-3">
+              <li>Market-relevant skills: sewing, tailoring, pattern-making</li>
+              <li>Business incubation & entrepreneurship</li>
+              <li>Sustainable fashion using recycled materials</li>
+            </ul>
           </div>
-          <button>Learn More</button>
+          <button
+          className="border-1 w-full border-gray-300 text-center p-1 rounded-lg"
+          >Learn More</button>
         </>
-      </>
-      <>
-        <div></div>
+      </div>
+      <div className="border-1 border-gray-300 p-4 rounded-lg bg-white">
+        <div
+        className="w-full h-40 bg-white rounded-xl shadow-md overflow-hidden mb-4"
+        >
+          <img 
+            src={abt2}
+            className="w-full h-full object-cover"
+            />
+        </div>
         <>
-          <div><IoWaterOutline /></div>
+          <div><IoWaterOutline className="mb-3 text-2xl text-green-400" /></div>
           <div>
-            <p>Clean Water & Food Security</p>
-            <p>
-              Providing household water filters, community tanks, and training in climate-smart farming for health and sustainable food security.<br></br>
-              •Household water filters for safe drinking<br></br>
-              •Community storage tanks<br></br>
-              •Drip irrigation & climate-smart farming <br></br>
+            <p className="text-lg font-bold mb-2">Clean Water & Food Security</p>
+            <p className="text-medium text-gray-400 mb-3">
+              Providing household water filters, community tanks, and training in climate-smart farming for health and sustainable food security.
             </p>
+             <ul className="flex flex-col gap-3 text-gray-400 mb-3">
+              <li>Household water filters for safe drinking</li>
+              <li>Community storage tanks</li>
+              <li>Drip irrigation & climate-smart farming</li>
+            </ul>
           </div>
-          <button>Learn More</button>
+          <button
+          className="border-1 w-full border-gray-300 text-center p-1 rounded-lg"
+          >Learn More</button>
         </>
-      </>
-      <>
-        <div></div>
+      </div>
+      <div className="border-1 border-gray-300 p-4 rounded-lg bg-white">
+        <div
+        className="w-full h-40 bg-white rounded-xl shadow-md overflow-hidden mb-4"
+        >
+          <img src={abt3}/>
+        </div>
         <>
-          <div><IoPeopleOutline /></div>
+          <div><IoPeopleOutline className="mb-3 text-2xl text-green-400" /></div>
           <div>
-            <p>Child & Youth Leadership Hub</p>
-            <p>
-              Nurturing young leaders through public speaking, financial literacy, mentorship programs, and youth forums on critical social issues.<br></br>
-              •Public speaking & financial literacy<br></br>
-              •Mentorship with role models<br></br>
-              •Forums on climate action & equality
+            <p className="text-lg font-bold mb-2">Child & Youth Leadership Hub</p>
+            <p className="text-medium text-gray-400 mb-3">
+              Nurturing young leaders through public speaking, financial literacy, mentorship programs, and youth forums on critical social issues.
             </p>
+            <ul className="flex flex-col gap-3 text-gray-400 mb-3">
+              <li>Public speaking & financial literacy</li>
+              <li>Mentorship with role models</li>
+              <li>Forums on climate action & equality</li>
+            </ul>
           </div>
-          <button>Learn More</button>
+          <button
+          className="border-1 w-full border-gray-300 text-center p-1 rounded-lg"
+          >Learn More</button>
         </>
-      </>
+      </div>
+      </div>
     </div>
 
     {/* Feature Page */}
