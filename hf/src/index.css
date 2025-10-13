@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+.impact-cards{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 4rem
+}
+
 .project-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -11,4 +17,13 @@
   padding: 2rem;
   background-color: #f9fafb; 
   justify-items: center;
+}
+
+.apply {
+  height: 20rem;
+}
+
+.apply-btn{ 
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10px, 0.4fr));
 }

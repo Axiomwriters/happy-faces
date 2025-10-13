@@ -31,7 +31,7 @@ function App() {
       <p
       className="text-center text-gray-200 text-2xl mb-5"
       >Happy Faces Empowerment Network is a community-based organization working in Nakuru, Nairobi, and Kisumu. We equip teenage mothers, youth school leavers, and marginalized communities with the skills, resources, and opportunities they need to build better lives.</p>
-      <div className="flex gap-5 font-bold">
+      <div className="home-btn flex gap-5 font-bold">
         <button 
         className="border-1 border-green-400 p-3 bg-green-400 rounded-lg text-medium"
         >Apply for Training</button>
@@ -48,10 +48,10 @@ function App() {
     </div>
 
     {/* Impact Page Code */}
-    <div className="impact flex flex-col justify-center items-center text-white bg-green-400 min-h-90">
-      <h1 className="text-5xl font-bold">Our Impact at a Glance</h1>
-      <h2 className="mt-5 mb-5 text-xl text-gray-200 ">Creating lasting change across Kenya's communities</h2>
-      <div className="flex justify-center items-center m-5 gap-3 text-center">
+    <div className="impact text-white bg-green-400 min-h-90">
+      <h1 className="text-5xl  font-bold text-center p-6">Our Impact at a Glance</h1>
+      <h2 className=" text-center mt-5 mb-5 text-xl text-gray-200 ">Creating lasting change across Kenya's communities</h2>
+      <div className="impact-cards flex flex-wrap justify-center  m-3 gap-3 p-5 text-center">
         <div className="flex flex-col justify-center items-center w-full">
           <p className="border-0 rounded-full p-2 bg-gray-300/50"><IoPeopleOutline className="text-4xl m-2" /></p>
           <p className="text-3xl font-bold m-1">50+</p>
@@ -205,28 +205,22 @@ function App() {
       </div>
     </div>
 
-    {/* Feature Page */}
-    <div>
-      <h1>Featured: Empowerment Stitches</h1>
-      <p>
-        A comprehensive vocational training and holistic support initiative targeting young women and men who have completed high school or dropped out due to socioeconomic challenges. Rooted in SDG 4 (Quality Education), SDG 5 (Gender Equality), SDG 6 (Clean Water & Sanitation), and SDG 8 (Decent Work & Economic Growth).
-
-        The program integrates mentorship, psychosocial support, GBV response, and entrepreneurship training to equip participants with tools to build sustainable livelihoods, regain confidence, and thrive.
-      </p>
-      <div>
-        <h2>Join Us in Creating Change</h2>
-        <p>
+    {/* Apply Page */}
+    <div className="apply bg-green-400 text-center text-white">
+      <h1 className="font-bold text-4xl p-6">Join Us in Creating Change</h1>
+        <p className="text-xl text-gray-300 p-3 mb-6">
           Whether through donations, partnerships, or volunteering, your support helps us empower more communities across Kenya.
         </p>
-        <button>Make a Donation</button>
-        <button>Sponsor a Program</button>
-        <button>Apply for Training</button>
-      </div>
+        <div className="apply-btn flex flex-wrap justify-center items-center m-10 max-w-full gap-3">
+          <button className="border-0 p-2 rounded-lg bg-gray-100 text-black">Make a Donation</button>
+          <button className="border-0 p-2 rounded-lg bg-gray-300">Sponsor a Program</button>
+          <button className="border-0 p-2 rounded-lg bg-gray-300">Apply for Training</button>
+        </div>
     </div>
 
     {/* Contact Page */}
-    <div>
-      <h1>Contact Us</h1>
+    <div className="min-h-screen bg-gray-100/50">
+      <h1 cla>Contact Us</h1>
       <h2>Get in touch to learn more about our programs or how you can help</h2>
       <>
         <div>
