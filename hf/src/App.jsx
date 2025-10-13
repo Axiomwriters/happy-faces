@@ -220,31 +220,33 @@ function App() {
 
     {/* Contact Page */}
     <div className="min-h-screen bg-gray-100/50">
-      <h1 cla>Contact Us</h1>
-      <h2>Get in touch to learn more about our programs or how you can help</h2>
-      <>
-        <div>
-          <p><CiLocationOn /></p>
-          <p>Location</p>
-          <p>Nakuru (Head Office), Kenya</p>
+      <h1 className="text-center font-bold text-4xl pt-8 m-4">Contact Us</h1>
+      <h2 className="text-center text-lg text-gray-400">Get in touch to learn more about our programs or how you can help</h2>
+      <div className="contact-cards flex flex-wrap m-8"> 
+        <div className="flex flex-col justify-center items-center border-1 border-gray-200 bg-white rounded-lg p-5">
+          <p className="border-0 rounded-full p-2 bg-gray-300/50"><CiLocationOn className="text-2xl text-green-400" /></p>
+          <p className="m-3 text-gray-400 font-medium">Location</p>
+          <p className="font-bold">Nakuru (Head Office), Kenya</p>
         </div>
-        <div>
-          <p><IoCallOutline /></p>
-          <p>Phone</p>
-          <p>0724436338</p>
+        <div className="flex flex-col justify-center items-center border-1 border-gray-200 bg-white rounded-lg p-5">
+          <p className="border-0 rounded-full p-2 bg-gray-300/50"><IoCallOutline className="text-2xl text-green-400" /></p>
+          <p className="m-3 text-gray-400 font-medium">Phone</p>
+          <p className="font-bold">0724436338</p>
         </div>
-        <div>
-          <p><CiMail /></p>
-          <p>Email</p>
-          <p>info@happyfaces.org</p>
+        <div className="flex flex-col justify-center items-center border-1 border-gray-200 bg-white rounded-lg p-5">
+          <p className="border-0 rounded-full p-2 bg-gray-300/50"><CiMail className="text-2xl text-green-400" /></p>
+          <p className="m-3 text-gray-400 font-medium">Email</p>
+          <p className="font-bold">info@happyfaces.org</p>
         </div>
-        <div>
-          <p><CiGlobe /></p>
-          <p>Location</p>
-          <p>Nakuru (Head Office), Kenya</p>
+        <div className="flex flex-col justify-center items-center border-1 border-gray-200 bg-white rounded-lg p-5">
+          <p className="border-0 rounded-full p-2 bg-gray-300/50"><CiGlobe className="text-2xl text-green-400" /></p>
+          <p className="m-3 text-gray-400 font-medium">Location</p>
+          <p className="font-bold">Nakuru (Head Office), Kenya</p>
         </div>
-      </>
-      <p>We serve communities in Nakuru, Nairobi, and Kisumu</p>
+      </div>
+      <p 
+      className="text-center text-gray-400 text-lg"
+      >We serve communities in <span className="font-bold text-black">Nakuru, Nairobi, and Kisumu</span></p>
     </div>
     </>
   )
