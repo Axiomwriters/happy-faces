@@ -20,6 +20,8 @@ function App() {
 
   return (
     <>
+    {/* Navbar */}
+    
 {/* Home Page code */}
     <div 
     className="home flex flex-col justify-center items-center bg-cover bg-center min-h-screen text-white"
