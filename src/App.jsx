@@ -15,8 +15,11 @@ import homeBg1 from './assets/home-bg.png';
 import abt2 from './assets/abt-2.png';
 import abt3 from './assets/abt-3.png';
 import './index.css'
+import Donate from "./components/Donate";
+import {  useNavigate } from "react-router-dom";
 
 function App() {
+  const navigate = useNavigate()
 
   return (
     <>
@@ -35,16 +38,17 @@ function App() {
       >Happy Faces Empowerment Network is a community-based organization working in Nakuru, Nairobi, and Kisumu. We equip teenage mothers, youth school leavers, and marginalized communities with the skills, resources, and opportunities they need to build better lives.</p>
       <div className="home-btn flex gap-5 font-bold">
         <button 
-        className="border-1 border-green-400 p-3 bg-green-400 rounded-lg text-medium"
+        className="border border-green-400 p-3 bg-green-400 rounded-lg text-medium"
         >Apply for Training</button>
         <button
-        className="border-1 border-green-400 p-3 bg-green-400 rounded-lg txt-medium"
+        className="border border-green-400 p-3 bg-green-400 rounded-lg txt-medium"
+        onClick={() => navigate('/donate')}
         >Donate Now</button>
         <button
-        className="border-1 border-gray-900/50 p-3 bg-gray-900/50 rounded-lg txt-medium"
+        className="border border-gray-900/50 p-3 bg-gray-900/50 rounded-lg txt-medium"
         >Sponsor a program</button>
         <button
-        className="border-1 border-gray-900/50 p-3 bg-gray-900/50 rounded-lg txt-medium"
+        className="border border-gray-900/50 p-3 bg-gray-900/50 rounded-lg txt-medium"
         >Partner with us</button>
       </div>
     </div>
@@ -86,7 +90,7 @@ function App() {
       <h1 className="font-bold text-4xl mt-6 mb-3">About Us</h1>
       <h2 className="text-gray-500 text-xl text-center mb-4">Building a sustainable future for Kenya's communities through empowerment and opportunity</h2>
       <div 
-      className="flex justify-center items-center p-3 gap-3 m-4 border-1 border-gray-200 rounded-lg"
+      className="flex justify-center items-center p-3 gap-3 m-4 border border-gray-200 rounded-lg"
       >
         <div className="border-0 bg-gray-300/50 p-3 rounded-lg">
           <MdOutlineDescription className="text-2xl text-green-400" />
@@ -97,7 +101,7 @@ function App() {
         </div>
       </div>
        <div
-       className="flex justify-center items-center p-3 gap-3 m-4 border-1 border-gray-200 rounded-lg"
+       className="flex justify-center items-center p-3 gap-3 m-4 border border-gray-200 rounded-lg"
        >
         <div className="border-0 bg-gray-300/50 p-3 rounded-lg">
         <FiTarget className="text-2xl text-green-400" />
@@ -108,7 +112,7 @@ function App() {
         </div>
       </div>
        <div
-       className="flex justify-center items-center p-3 gap-3 m-4 border-1 border-gray-200 rounded-lg"
+       className="flex justify-center items-center p-3 gap-3 m-4 border border-gray-200 rounded-lg"
        >
         <div className="border-0 bg-gray-300/50 p-3 rounded-lg">
           <FaRegEye className="text-2xl text-green-400" />
@@ -125,7 +129,7 @@ function App() {
       <h1 className="font-bold text-4xl p-3 mb-3 text-center">Programs & Projects</h1>
       <h2 className="text-gray-500 text-xl text-center mb-4">Comprehensive empowerment initiatives addressing community needs through multiple pathways</h2>
       <div className="project-cards flex flex-wrap justify-center gap-6 p-8">
-        <div className="border-1 border-gray-300 p-4 rounded-lg bg-white">
+        <div className="border border-gray-300 p-4 rounded-lg bg-white">
         <div 
         className="w-full h-40 bg-white rounded-xl shadow-md overflow-hidden mb-4"
         >
@@ -149,11 +153,11 @@ function App() {
             </ul>
           </div>
           <button
-          className="border-1 w-full border-gray-300 text-center p-1 rounded-lg"
+          className="border w-full border-gray-300 text-center p-1 rounded-lg"
           >Learn More</button>
         </>
       </div>
-      <div className="border-1 border-gray-300 p-4 rounded-lg bg-white">
+      <div className="border border-gray-300 p-4 rounded-lg bg-white">
         <div
         className="w-full h-40 bg-white rounded-xl shadow-md overflow-hidden mb-4"
         >
@@ -176,11 +180,11 @@ function App() {
             </ul>
           </div>
           <button
-          className="border-1 w-full border-gray-300 text-center p-1 rounded-lg"
+          className="border w-full border-gray-300 text-center p-1 rounded-lg"
           >Learn More</button>
         </>
       </div>
-      <div className="border-1 border-gray-300 p-4 rounded-lg bg-white">
+      <div className="border border-gray-300 p-4 rounded-lg bg-white">
         <div
         className="w-full h-40 bg-white rounded-xl shadow-md overflow-hidden mb-4"
         >
@@ -200,7 +204,7 @@ function App() {
             </ul>
           </div>
           <button
-          className="border-1 w-full border-gray-300 text-center p-1 rounded-lg"
+          className="border w-full border-gray-300 text-center p-1 rounded-lg"
           >Learn More</button>
         </>
       </div>
@@ -225,22 +229,22 @@ function App() {
       <h1 className="text-center font-bold text-4xl pt-8 m-4">Contact Us</h1>
       <h2 className="text-center text-lg text-gray-400">Get in touch to learn more about our programs or how you can help</h2>
       <div className="contact-cards flex flex-wrap m-8"> 
-        <div className="flex flex-col justify-center items-center border-1 border-gray-200 bg-white rounded-lg p-5">
+        <div className="flex flex-col justify-center items-center border border-gray-200 bg-white rounded-lg p-5">
           <p className="border-0 rounded-full p-2 bg-gray-300/50"><CiLocationOn className="text-2xl text-green-400" /></p>
           <p className="m-3 text-gray-400 font-medium">Location</p>
           <p className="font-bold">Nakuru (Head Office), Kenya</p>
         </div>
-        <div className="flex flex-col justify-center items-center border-1 border-gray-200 bg-white rounded-lg p-5">
+        <div className="flex flex-col justify-center items-center border border-gray-200 bg-white rounded-lg p-5">
           <p className="border-0 rounded-full p-2 bg-gray-300/50"><IoCallOutline className="text-2xl text-green-400" /></p>
           <p className="m-3 text-gray-400 font-medium">Phone</p>
           <p className="font-bold">0724436338</p>
         </div>
-        <div className="flex flex-col justify-center items-center border-1 border-gray-200 bg-white rounded-lg p-5">
+        <div className="flex flex-col justify-center items-center border border-gray-200 bg-white rounded-lg p-5">
           <p className="border-0 rounded-full p-2 bg-gray-300/50"><CiMail className="text-2xl text-green-400" /></p>
           <p className="m-3 text-gray-400 font-medium">Email</p>
           <p className="font-bold">info@happyfaces.org</p>
         </div>
-        <div className="flex flex-col justify-center items-center border-1 border-gray-200 bg-white rounded-lg p-5">
+        <div className="flex flex-col justify-center items-center border border-gray-200 bg-white rounded-lg p-5">
           <p className="border-0 rounded-full p-2 bg-gray-300/50"><CiGlobe className="text-2xl text-green-400" /></p>
           <p className="m-3 text-gray-400 font-medium">Location</p>
           <p className="font-bold">Nakuru (Head Office), Kenya</p>
