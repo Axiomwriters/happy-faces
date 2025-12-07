@@ -49,6 +49,7 @@ const Hero = () => {
                         Donate Now
                     </button>
                     <button
+                        onClick={() => navigate('/register')}
                         className="col-span-1 px-4 sm:px-8 py-4 border-2 border-white hover:bg-white/10 text-white text-base sm:text-lg font-semibold rounded-full backdrop-blur-sm transition-all transform hover:-translate-y-1 flex items-center justify-center text-center"
                     >
                         Apply for Training
