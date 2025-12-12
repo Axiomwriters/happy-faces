@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
 import { FiScissors } from "react-icons/fi";
 import { IoWaterOutline, IoPeopleOutline } from "react-icons/io5";
+import { Link } from 'react-router-dom';
 import homeBg from '../assets/home-bg.png';
 import abt2 from '../assets/abt-2.png';
 import abt3 from '../assets/abt-3.png';
 
-const ProjectCard = ({ image, icon: Icon, title, description, points, delay }) => (
+const ProjectCard = ({ image, icon: Icon, title, description, points, delay, link }) => (
     <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -40,9 +41,11 @@ const ProjectCard = ({ image, icon: Icon, title, description, points, delay }) =
                     </li>
                 ))}
             </ul>
-            <button className="w-full py-2 border border-green-500 text-green-600 rounded-lg font-medium hover:bg-green-500 hover:text-white transition-all duration-300">
-                Learn More
-            </button>
+            <Link to={link} className="block w-full">
+                <button className="w-full py-2 border border-green-500 text-green-600 rounded-lg font-medium hover:bg-green-500 hover:text-white transition-all duration-300">
+                    Learn More
+                </button>
+            </Link>
         </div>
     </motion.div>
 );
@@ -58,7 +61,8 @@ const Projects = () => {
                 'Market-relevant skills: sewing, tailoring',
                 'Business incubation & entrepreneurship',
                 'Sustainable fashion using recycled materials'
-            ]
+            ],
+            link: '/programs#stitches'
         },
         {
             image: abt2,
@@ -69,7 +73,8 @@ const Projects = () => {
                 'Household water filters for safe drinking',
                 'Community storage tanks',
                 'Drip irrigation & climate-smart farming'
-            ]
+            ],
+            link: '/programs#water'
         },
         {
             image: abt3,
@@ -80,7 +85,8 @@ const Projects = () => {
                 'Public speaking & financial literacy',
                 'Mentorship with role models',
                 'Forums on climate action & equality'
-            ]
+            ],
+            link: '/programs#leadership'
         }
     ];
 

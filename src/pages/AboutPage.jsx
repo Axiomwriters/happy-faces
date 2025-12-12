@@ -14,7 +14,7 @@ const AboutPage = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6 }}
-                className="relative bg-gradient-to-r from-green-600 to-green-800 text-white py-24 mt-20"
+                className="relative bg-gradient-to-r from-green-600 to-green-800 text-white py-24"
             >
                 <div className="container mx-auto px-6 text-center">
                     <motion.h1
