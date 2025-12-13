@@ -5,11 +5,14 @@ const Footer = () => {
         <footer className="bg-gray-900 text-white py-12">
             <div className="container mx-auto px-6">
                 <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-                    <div className="mb-6 md:mb-0 text-center md:text-left">
-                        <h2 className="text-2xl font-bold text-white mb-2">
-                            Happy<span className="text-green-400">Faces</span>
-                        </h2>
-                        <p className="text-gray-400 text-sm max-w-xs">
+                    <div className="mb-6 md:mb-0 text-center">
+                        <div className="flex flex-col items-center gap-2 mb-2">
+                            <img src="/favicon.png" alt="Happy Faces Logo" className="h-12 w-12 object-contain" />
+                            <h2 className="text-2xl font-bold text-white">
+                                Happy<span className="text-green-400">Faces</span>
+                            </h2>
+                        </div>
+                        <p className="text-gray-400 text-sm max-w-xs mx-auto">
                             Empowering communities, one life at a time.
                         </p>
                     </div>
@@ -35,9 +38,9 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-                    <p>&copy; {new Date().getFullYear()} Happy Faces Empowerment Network. All rights reserved.</p>
-                    <div className="flex gap-6 mt-4 md:mt-0">
+                <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-center items-center text-sm text-gray-500 md:gap-8">
+                    <p className="text-center md:text-left w-full md:w-auto">&copy; {new Date().getFullYear()} Happy Faces Empowerment Network. All rights reserved.</p>
+                    <div className="flex gap-6 mt-4 md:mt-0 justify-center w-full md:w-auto">
                         <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
                         <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
                     </div>

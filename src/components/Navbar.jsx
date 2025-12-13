@@ -34,6 +34,7 @@ const Navbar = () => {
         <div className="container mx-auto px-6 flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="text-2xl font-bold flex items-center gap-2">
+            <img src="/favicon.png" alt="Happy Faces Logo" className="h-10 w-10 object-contain" />
             <span className={`text-3xl ${scrolled ? 'text-green-600' : 'text-white'}`}>
               Happy<span className={scrolled ? 'text-gray-800' : 'text-green-300'}>Faces</span>
             </span>

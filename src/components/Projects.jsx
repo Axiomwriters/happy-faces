@@ -41,11 +41,6 @@ const ProjectCard = ({ image, icon: Icon, title, description, points, delay, lin
                     </li>
                 ))}
             </ul>
-            <Link to={link} className="block w-full">
-                <button className="w-full py-2 border border-green-500 text-green-600 rounded-lg font-medium hover:bg-green-500 hover:text-white transition-all duration-300">
-                    Learn More
-                </button>
-            </Link>
         </div>
     </motion.div>
 );
@@ -135,6 +130,14 @@ const Projects = () => {
                             </div>
                         ))}
                     </div>
+                </div>
+
+                <div className="mt-4 md:mt-12 text-center">
+                    <Link to="/programs">
+                        <button className="px-8 py-3 bg-green-600 text-white rounded-full font-semibold shadow-lg hover:bg-green-700 transition-all transform hover:scale-105">
+                            Learn More
+                        </button>
+                    </Link>
                 </div>
             </div>
         </section>
