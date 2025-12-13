@@ -1,6 +1,19 @@
-import { FaBars, FaBell, FaSearch, FaUserCircle, FaPlus } from 'react-icons/fa';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FaBars, FaBell, FaSearch, FaUserCircle, FaPlus, FaSignOutAlt } from 'react-icons/fa';
 
 const Topbar = ({ isSidebarOpen, toggleSidebar }) => {
+    const navigate = useNavigate();
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    const handleLogout = () => {
+        // Clear auth data
+        localStorage.removeItem('isAuthenticated');
+        localStorage.removeItem('userRole');
+        // Redirect to admin login
+        navigate('/admin/login');
+    };
+
     return (
         <header className="flex items-center justify-between px-6 py-4 bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm sticky top-0 z-40 transition-all duration-300">
             <div className="flex items-center flex-1 gap-4">
@@ -46,7 +59,10 @@ const Topbar = ({ isSidebarOpen, toggleSidebar }) => {
 
                 {/* Profile Dropdown */}
                 <div className="relative pl-2">
-                    <button className="flex items-center gap-3 focus:outline-none hover:bg-gray-50 p-1.5 rounded-lg transition-colors">
+                    <button
+                        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                        className="flex items-center gap-3 focus:outline-none hover:bg-gray-50 p-1.5 rounded-lg transition-colors"
+                    >
                         <div className="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center text-green-600 border border-green-200">
                             <FaUserCircle className="w-6 h-6" />
                         </div>
@@ -55,6 +71,25 @@ const Topbar = ({ isSidebarOpen, toggleSidebar }) => {
                             <p className="text-[10px] text-gray-500 uppercase tracking-wide">Administrator</p>
                         </div>
                     </button>
+
+                    {/* Dropdown Menu */}
+                    {isDropdownOpen && (
+                        <div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-100 py-1 origin-top-right transform transition-all z-50">
+                            <div className="px-4 py-3 border-b border-gray-100">
+                                <p className="text-sm font-semibold text-gray-900">Signed in as</p>
+                                <p className="text-sm text-gray-500 truncate">admin@happyfaces.org</p>
+                            </div>
+                            <div className="py-1">
+                                <button
+                                    onClick={handleLogout}
+                                    className="flex items-center w-full px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors gap-2"
+                                >
+                                    <FaSignOutAlt className="w-4 h-4" />
+                                    Sign out
+                                </button>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
         </header>

@@ -16,10 +16,13 @@ import StudentLayout from './layouts/StudentLayout';
 
 // Admin Pages
 import DashboardHome from './pages/admin/DashboardHome';
+import AdminLogin from './pages/admin/Login';
 import AdminStudents from './pages/admin/Students';
 import AdminCourses from './pages/admin/Courses';
 import AdminPayments from './pages/admin/Payments';
 import AdminSettings from './pages/admin/Settings';
+import AdminDonations from './pages/admin/Donations';
+import AdminPartners from './pages/admin/Partners';
 
 // Student Pages
 import StudentDashboard from './pages/student/Dashboard';
@@ -62,6 +65,7 @@ function App() {
 
         {/* Public Routes */}
         <Route path="/login" element={<Login />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/register" element={<Register />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/programs" element={<ProgramsPage />} />
@@ -82,6 +86,8 @@ function App() {
           <Route path="students" element={<AdminStudents />} />
           <Route path="courses" element={<AdminCourses />} />
           <Route path="payments" element={<AdminPayments />} />
+          <Route path="donations" element={<AdminDonations />} />
+          <Route path="partners" element={<AdminPartners />} />
           <Route path="settings" element={<AdminSettings />} />
         </Route>
 
