@@ -1,4 +1,4 @@
-import { FiScissors, FiMonitor, FiMap, FiUsers, FiShield, FiSun, FiTree, FiBook, FiHome, FiFlag, FiBookOpen, FiHeart, FiDroplet, FiClipboard, FiLayers, FiRefreshCw, FiDollarSign, FiBriefcase, FiMessageSquare, FiGlobe, FiTrendingUp, FiAward, FiSmile, FiStar, FiCompass, FiCoffee, FiTool, FiTablet, FiCamera, FiSliders, FiThumbsUp, FiBattery } from "react-icons/fi";
+import { FiScissors, FiMonitor, FiMap, FiUsers, FiShield, FiSun, FiFeather, FiBook, FiHome, FiFlag, FiBookOpen, FiHeart, FiDroplet, FiClipboard, FiLayers, FiRefreshCw, FiDollarSign, FiBriefcase, FiMessageSquare, FiGlobe, FiTrendingUp, FiAward, FiSmile, FiStar, FiCompass, FiCoffee, FiTool, FiTablet, FiCamera, FiSliders, FiThumbsUp, FiBattery } from "react-icons/fi";
 import { IoWaterOutline, IoPeopleOutline } from "react-icons/io5";
 import homeBg from '../assets/home-bg.png';
 import abt2 from '../assets/abt-2.png';
@@ -208,7 +208,7 @@ const programsData = [
   {
     id: 'restoration-network',
     title: 'Restoration Network',
-    icon: FiTree,
+    icon: FiFeather,
     image: null,
     gradient: 'from-green-600 to-emerald-700',
     subtitle: 'Large-Scale Environmental Restoration',
