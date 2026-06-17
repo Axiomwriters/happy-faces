@@ -1,36 +1,42 @@
-import { motion } from 'framer-motion';
-import { FiScissors } from "react-icons/fi";
-import { IoWaterOutline, IoPeopleOutline } from "react-icons/io5";
+import { useState, useEffect, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import homeBg from '../assets/home-bg.png';
-import abt2 from '../assets/abt-2.png';
-import abt3 from '../assets/abt-3.png';
+import programsData from '../data/ProgramsData';
 
-const ProjectCard = ({ image, icon: Icon, title, description, points, delay, link }) => (
+const ProjectCard = ({ image, gradient, icon: Icon, title, description, points, delay }) => (
     <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay }}
-        className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group"
+        className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group h-full flex flex-col"
     >
-        <div className="relative h-48 overflow-hidden">
-            <img
-                src={image}
-                alt={title}
-                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"></div>
+        <div className="relative h-48 overflow-hidden flex-shrink-0">
+            {image ? (
+                <>
+                    <img
+                        src={image}
+                        alt={title}
+                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"></div>
+                </>
+            ) : (
+                <div className={`w-full h-full bg-gradient-to-br ${gradient} flex items-center justify-center`}>
+                    <Icon className="text-white/30 text-6xl" />
+                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-300"></div>
+                </div>
+            )}
             <div className="absolute top-4 right-4 bg-white p-2 rounded-full text-green-600 shadow-md">
                 <Icon className="text-xl" />
             </div>
         </div>
 
-        <div className="p-6">
+        <div className="p-6 flex flex-col flex-1">
             <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-green-600 transition-colors">
                 {title}
             </h3>
-            <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+            <p className="text-gray-600 mb-4 text-sm leading-relaxed flex-1">
                 {description}
             </p>
             <ul className="space-y-2 mb-6">
@@ -46,44 +52,59 @@ const ProjectCard = ({ image, icon: Icon, title, description, points, delay, lin
 );
 
 const Projects = () => {
-    const projects = [
-        {
-            image: homeBg,
-            icon: FiScissors,
-            title: 'Empowerment Stitches',
-            description: 'Vocational training in fashion design, tailoring, and artisan bag production with mentorship, entrepreneurship training, and counseling.',
-            points: [
-                'Market-relevant skills: sewing, tailoring',
-                'Business incubation & entrepreneurship',
-                'Sustainable fashion using recycled materials'
-            ],
-            link: '/programs#stitches'
-        },
-        {
-            image: abt2,
-            icon: IoWaterOutline,
-            title: 'Clean Water & Food Security',
-            description: 'Providing household water filters, community tanks, and training in climate-smart farming for health and sustainable food security.',
-            points: [
-                'Household water filters for safe drinking',
-                'Community storage tanks',
-                'Drip irrigation & climate-smart farming'
-            ],
-            link: '/programs#water'
-        },
-        {
-            image: abt3,
-            icon: IoPeopleOutline,
-            title: 'Child & Youth Leadership Hub',
-            description: 'Nurturing young leaders through public speaking, financial literacy, mentorship programs, and youth forums on critical social issues.',
-            points: [
-                'Public speaking & financial literacy',
-                'Mentorship with role models',
-                'Forums on climate action & equality'
-            ],
-            link: '/programs#leadership'
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [direction, setDirection] = useState(0);
+    const [itemsPerPage, setItemsPerPage] = useState(1);
+
+    useEffect(() => {
+        const updateItemsPerPage = () => {
+            const width = window.innerWidth;
+            if (width >= 1024) setItemsPerPage(3);
+            else if (width >= 768) setItemsPerPage(2);
+            else setItemsPerPage(1);
+        };
+        updateItemsPerPage();
+        window.addEventListener('resize', updateItemsPerPage);
+        return () => window.removeEventListener('resize', updateItemsPerPage);
+    }, []);
+
+    const totalPages = Math.ceil(programsData.length / itemsPerPage);
+
+    useEffect(() => {
+        if (currentIndex >= totalPages) {
+            setCurrentIndex(Math.max(0, totalPages - 1));
         }
-    ];
+    }, [totalPages, currentIndex]);
+
+    const goNext = useCallback(() => {
+        setDirection(1);
+        setCurrentIndex(prev => prev + 1 >= totalPages ? 0 : prev + 1);
+    }, [totalPages]);
+
+    const goPrev = useCallback(() => {
+        setDirection(-1);
+        setCurrentIndex(prev => prev - 1 < 0 ? totalPages - 1 : prev - 1);
+    }, [totalPages]);
+
+    const visiblePrograms = programsData.slice(
+        currentIndex * itemsPerPage,
+        currentIndex * itemsPerPage + itemsPerPage
+    );
+
+    const slideVariants = {
+        enter: (dir) => ({
+            x: dir > 0 ? 300 : -300,
+            opacity: 0,
+        }),
+        center: {
+            x: 0,
+            opacity: 1,
+        },
+        exit: (dir) => ({
+            x: dir > 0 ? -300 : 300,
+            opacity: 0,
+        }),
+    };
 
     return (
         <section className="py-20 bg-white" id="programs">
@@ -101,38 +122,71 @@ const Projects = () => {
                     </p>
                 </motion.div>
 
-                <div className="relative group">
-                    {/* Mobile Navigation Arrows */}
+                <div className="relative">
+                    {/* Navigation Arrows */}
                     <button
-                        onClick={() => document.getElementById('projects-carousel').scrollBy({ left: -300, behavior: 'smooth' })}
-                        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white/80 backdrop-blur-sm shadow-lg text-green-600 hover:bg-white transition-all border border-green-100 md:hidden -ml-2"
+                        onClick={goPrev}
+                        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white/90 backdrop-blur-sm shadow-lg text-green-600 hover:bg-white hover:text-green-700 transition-all border border-green-100 -ml-4 hover:scale-105"
+                        aria-label="Previous programs"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                         </svg>
                     </button>
+
+                    <div className="overflow-hidden mx-2">
+                        <AnimatePresence mode="wait" custom={direction}>
+                            <motion.div
+                                key={currentIndex}
+                                custom={direction}
+                                variants={slideVariants}
+                                initial="enter"
+                                animate="center"
+                                exit="exit"
+                                transition={{ type: 'tween', duration: 0.4, ease: 'easeInOut' }}
+                                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+                            >
+                                {visiblePrograms.map((program) => (
+                                    <ProjectCard
+                                        key={program.id}
+                                        {...program}
+                                        delay={0}
+                                    />
+                                ))}
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
+
                     <button
-                        onClick={() => document.getElementById('projects-carousel').scrollBy({ left: 300, behavior: 'smooth' })}
-                        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white/80 backdrop-blur-sm shadow-lg text-green-600 hover:bg-white transition-all border border-green-100 md:hidden -mr-2"
+                        onClick={goNext}
+                        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white/90 backdrop-blur-sm shadow-lg text-green-600 hover:bg-white hover:text-green-700 transition-all border border-green-100 -mr-4 hover:scale-105"
+                        aria-label="Next programs"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                         </svg>
                     </button>
-
-                    <div
-                        id="projects-carousel"
-                        className="flex md:grid md:grid-cols-2 lg:grid-cols-3 overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-6 md:gap-8 pb-12 md:pb-0 -mx-6 px-6 md:mx-0 md:px-0 scrollbar-hide scroll-smooth"
-                    >
-                        {projects.map((project, index) => (
-                            <div key={index} className="min-w-[85vw] md:min-w-0 snap-center first:pl-2 last:pr-2">
-                                <ProjectCard {...project} delay={index * 0.2} />
-                            </div>
-                        ))}
-                    </div>
                 </div>
 
-                <div className="mt-4 md:mt-12 text-center">
+                {/* Pagination Indicators */}
+                <div className="flex justify-center mt-8 gap-2">
+                    {Array.from({ length: totalPages }).map((_, i) => (
+                        <button
+                            key={i}
+                            onClick={() => {
+                                setDirection(i > currentIndex ? 1 : -1);
+                                setCurrentIndex(i);
+                            }}
+                            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === currentIndex
+                                ? 'bg-green-600 w-6'
+                                : 'bg-gray-300 hover:bg-green-400'
+                                }`}
+                            aria-label={`Go to page ${i + 1}`}
+                        />
+                    ))}
+                </div>
+
+                <div className="mt-12 text-center">
                     <Link to="/programs">
                         <button className="px-8 py-3 bg-green-600 text-white rounded-full font-semibold shadow-lg hover:bg-green-700 transition-all transform hover:scale-105">
                             Learn More

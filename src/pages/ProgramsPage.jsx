@@ -1,12 +1,10 @@
 import { useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FiScissors, FiDroplet, FiUsers, FiArrowRight, FiCheck } from "react-icons/fi";
+import { FiArrowRight, FiCheck } from "react-icons/fi";
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import homeBg from '../assets/home-bg.png';
-import abt2 from '../assets/abt-2.png';
-import abt3 from '../assets/abt-3.png';
+import programsData from '../data/ProgramsData';
 
 const ProgramsPage = () => {
     const { hash } = useLocation();
@@ -21,66 +19,6 @@ const ProgramsPage = () => {
             window.scrollTo(0, 0);
         }
     }, [hash]);
-
-    const programs = [
-        {
-            id: 'stitches',
-            title: 'Empowerment Stitches',
-            icon: FiScissors,
-            image: homeBg,
-            subtitle: 'Vocational Training & Entrepreneurship',
-            description: 'Empowering women and youth with market-relevant skills in fashion design, tailoring, and artisan bag production. We go beyond technical skills by providing business incubation, mentorship, and counseling to ensure long-term success.',
-            stats: [
-                { value: '500+', label: 'Graduates' },
-                { value: '85%', label: 'Employment Rate' },
-                { value: '120', label: 'Businesses Started' }
-            ],
-            keyFeatures: [
-                'Comprehensive tailoring & design curriculum',
-                'Business management & financial literacy training',
-                'Access to startup capital & equipment',
-                'Sustainable fashion using recycled materials'
-            ]
-        },
-        {
-            id: 'water',
-            title: 'Clean Water & Food Security',
-            icon: FiDroplet,
-            image: abt2,
-            subtitle: 'Health, Hygiene & Sustainable Agriculture',
-            description: 'Tackling the root causes of poverty through access to clean water and sustainable food sources. We install household water filters, build community tanks, and train families in climate-smart farming techniques.',
-            stats: [
-                { value: '10k+', label: 'People Served' },
-                { value: '50', label: 'Community Tanks' },
-                { value: '200', label: 'Farms Established' }
-            ],
-            keyFeatures: [
-                'Household bio-sand water filters',
-                'Rainwater harvesting systems',
-                'Drip irrigation technology',
-                'Organic farming workshops'
-            ]
-        },
-        {
-            id: 'leadership',
-            title: 'Child & Youth Leadership Hub',
-            icon: FiUsers,
-            image: abt3,
-            subtitle: 'Mentorship, Education & Civic Engagement',
-            description: 'Nurturing the next generation of changemakers. Our hub provides a safe space for youth to develop leadership skills, improve financial literacy, and engage in critical discussions about social issues affecting their communities.',
-            stats: [
-                { value: '1,200', label: 'Youth Engaged' },
-                { value: '40+', label: 'School Partners' },
-                { value: '25', label: 'Youth Forums' }
-            ],
-            keyFeatures: [
-                'Public speaking & debate clubs',
-                'Financial literacy & career guidance',
-                'Mentorship from industry professionals',
-                'Community service projects'
-            ]
-        }
-    ];
 
     const scrollToSection = (id) => {
         const element = document.getElementById(id);
@@ -122,8 +60,8 @@ const ProgramsPage = () => {
                 <aside className="hidden lg:block w-1/4 h-fit sticky top-24 z-30">
                     <div className="bg-white rounded-2xl shadow-xl p-6 border border-gray-100">
                         <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4 pl-4">Navigate Programs</h3>
-                        <nav className="space-y-2">
-                            {programs.map((program) => (
+                        <nav className="space-y-2 max-h-[calc(100vh-15rem)] overflow-y-auto pr-2 scrollbar-hide">
+                            {programsData.map((program) => (
                                 <button
                                     key={program.id}
                                     onClick={() => scrollToSection(program.id)}
@@ -132,12 +70,12 @@ const ProgramsPage = () => {
                                         : 'text-gray-600 hover:bg-gray-50 hover:text-green-600'
                                         }`}
                                 >
-                                    <program.icon className={hash === `#${program.id}` ? "text-green-600" : "text-gray-400"} />
-                                    {program.title}
+                                    <program.icon className={hash === `#${program.id}` ? "text-green-600 flex-shrink-0" : "text-gray-400 flex-shrink-0"} />
+                                    <span className="truncate">{program.title}</span>
                                 </button>
                             ))}
                         </nav>
-                        <div className="mt-8 p-4 bg-green-50 rounded-xl border border-green-100">
+                        <div className="mt-6 p-4 bg-green-50 rounded-xl border border-green-100">
                             <p className="text-sm text-green-800 font-medium mb-3">Want to support our work?</p>
                             <Link to="/donate" className="block w-full py-2 bg-green-600 text-white text-center rounded-lg hover:bg-green-700 transition-colors text-sm font-bold">
                                 Donate Now
@@ -148,7 +86,7 @@ const ProgramsPage = () => {
 
                 {/* Main Content Area */}
                 <main className="w-full lg:w-3/4 space-y-24">
-                    {programs.map((program, index) => (
+                    {programsData.map((program) => (
                         <motion.section
                             key={program.id}
                             id={program.id}
@@ -159,10 +97,21 @@ const ProgramsPage = () => {
                             className="scroll-mt-28"
                         >
                             <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
-                                {/* Program Hero Image */}
+                                {/* Program Hero Image or Gradient */}
                                 <div className="h-64 md:h-96 relative overflow-hidden">
-                                    <img src={program.image} alt={program.title} className="w-full h-full object-cover" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                                    {program.image ? (
+                                        <>
+                                            <img src={program.image} alt={program.title} className="w-full h-full object-cover" />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <div className={`w-full h-full bg-gradient-to-br ${program.gradient} flex items-center justify-center`}>
+                                                <program.icon className="text-white/15 text-8xl" />
+                                            </div>
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                                        </>
+                                    )}
                                     <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 text-white">
                                         <div className="flex items-center gap-2 mb-2 bg-green-600/90 w-fit px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-sm">
                                             <program.icon /> Program Focus
