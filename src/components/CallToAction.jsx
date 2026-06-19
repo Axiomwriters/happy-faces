@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const CallToAction = () => {
+  const navigate = useNavigate();
     return (
         <section className="py-20 bg-green-500 relative overflow-hidden">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
@@ -35,7 +37,7 @@ const CallToAction = () => {
                     <div className="flex flex-col gap-4 items-center w-full md:w-auto">
                         <h3 className="text-yellow-300 border-b-2 border-yellow-300 pb-1 mb-4 text-xl font-bold tracking-wide">Become a Supporter</h3>
                         <div className="flex flex-wrap justify-center gap-4">
-                            <button className="px-8 py-4 bg-white text-green-600 font-bold rounded-full shadow-lg hover:bg-gray-100 transition-transform transform hover:-translate-y-1">
+                            <button onClick={() => navigate('/donate')} className="px-8 py-4 bg-white text-green-600 font-bold rounded-full shadow-lg hover:bg-gray-100 transition-transform transform hover:-translate-y-1">
                                 Donate Now
                             </button>
                             <button className="px-8 py-4 bg-green-700 text-white font-bold rounded-full shadow-lg hover:bg-green-800 transition-transform transform hover:-translate-y-1 border border-green-600">
