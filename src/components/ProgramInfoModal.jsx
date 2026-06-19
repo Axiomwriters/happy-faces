@@ -83,7 +83,7 @@ const ProgramInfoModal = ({ program, onClose }) => {
                   </div>
                 </div>
 
-                <div className="p-6 sm:p-8 space-y-6 max-h-[65vh] overflow-y-auto scrollbar-hide">
+                <div className="p-6 sm:p-8 space-y-6 max-h-[65vh] overflow-y-auto scrollbar-hide lg:max-h-none lg:overflow-visible">
                   {programInfo.overview && (
                     <SectionCard icon={FiGlobe} title="Overview">
                       <p>{programInfo.overview}</p>
