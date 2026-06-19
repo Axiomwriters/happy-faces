@@ -1,13 +1,15 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FiArrowRight, FiCheck } from "react-icons/fi";
+import { FiArrowRight, FiCheck, FiInfo } from "react-icons/fi";
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import programsData from '../data/ProgramsData';
+import ProgramInfoModal from '../components/ProgramInfoModal';
 
 const ProgramsPage = () => {
     const { hash } = useLocation();
+    const [infoProgram, setInfoProgram] = useState(null);
 
     useEffect(() => {
         if (hash) {
@@ -159,9 +161,10 @@ const ProgramsPage = () => {
                                             Partner With Us
                                             <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
                                         </Link>
-                                        <Link to="/contact" className="flex-1 px-8 py-4 border-2 border-gray-200 text-gray-700 text-center font-bold rounded-xl hover:border-green-600 hover:text-green-600 transition-all">
-                                            Contact Program Lead
-                                        </Link>
+                                        <button onClick={() => setInfoProgram(program)} className="flex-1 px-8 py-4 border-2 border-gray-200 text-gray-700 text-center font-bold rounded-xl hover:border-green-600 hover:text-green-600 hover:bg-green-50 transition-all flex items-center justify-center gap-2">
+                                            <FiInfo className="w-5 h-5" />
+                                            Program Info
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -171,6 +174,8 @@ const ProgramsPage = () => {
             </div>
 
             <Footer />
+
+            <ProgramInfoModal program={infoProgram} onClose={() => setInfoProgram(null)} />
         </div>
     );
 };
